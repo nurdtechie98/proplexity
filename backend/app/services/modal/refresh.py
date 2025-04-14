@@ -62,7 +62,9 @@ async def refresh_stale_websites() -> RefreshResponse:
             headers=headers
         )
         response.raise_for_status()
-        stale_websites = response.json()
+        stale_websites = response.json().get("data", {}).get("websites", [])
+
+        print(f"Found {len(stale_websites)} stale websites")
 
         jobs_started = []
         websites_refreshed = []

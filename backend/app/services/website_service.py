@@ -1,7 +1,7 @@
 from typing import Optional, Dict, Any
 from datetime import datetime
 from sqlalchemy.orm import Session
-from sqlalchemy import func
+from sqlalchemy import func, String
 
 from app.models.website import Website
 from app.core.config import settings
@@ -139,7 +139,7 @@ def get_stale_websites(db: Session) -> Dict[str, Any]:
                     func.datetime(
                         'now',
                         '-' + func.cast(
-                            Website.scrape_interval_days, 'text'
+                            Website.scrape_interval_days, String
                         ) + ' days'
                     )
                 )
