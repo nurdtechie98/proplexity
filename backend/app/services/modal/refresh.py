@@ -44,17 +44,6 @@ async def refresh_stale_websites() -> RefreshResponse:
     Raises:
         Exceptions are caught and logged, returning empty lists in case of
         errors
-
-    Example Response:
-        {
-            "jobs_started": ["job-123", "job-456"],
-            "websites_refreshed": ["https://example.com", "https://test.com"]
-        }
-
-    API Endpoints Used:
-        - GET /websites/stale: Get list of websites needing refresh
-        - POST /scraper/spider/start: Start new spider job
-        - PUT /websites/{id}/refresh: Update website refresh timestamp
     """
     import requests
 

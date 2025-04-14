@@ -1,7 +1,7 @@
 import { API_CONFIG } from '../config/api';
 
 interface FetchOptions extends RequestInit {
-  params?: Record<string, any>;
+  params?: Record<string, string | number | boolean | undefined>;
 }
 
 class ApiError extends Error {

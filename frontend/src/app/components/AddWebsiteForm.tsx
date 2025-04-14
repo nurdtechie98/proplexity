@@ -32,18 +32,18 @@ export default function AddWebsiteForm({ onSuccess }: AddWebsiteFormProps) {
       // Poll for spider status
       const pollInterval = setInterval(async () => {
         try {
-          const statusData = await spiderService.getStatus(data.job_id);
+          const statusData = await spiderService.getStatus(data.data?.job_id || '');
           setJobStatus(`Scraping status: ${statusData.status}${
             statusData.progress ? ` (${statusData.progress}% complete)` : ''
           }`);
           
-          if (['completed', 'failed'].includes(statusData.status)) {
+          if (['success', 'error'].includes(statusData.status)) {
             clearInterval(pollInterval);
-            if (statusData.status === 'completed') {
+            if (statusData.status === 'success') {
               setJobStatus('Website scraping completed successfully!');
               onSuccess?.();
-            } else if (statusData.status === 'failed') {
-              setError(statusData.error || 'Scraping failed');
+            } else if (statusData.status === 'error') {
+              setError(statusData.message || 'Scraping failed');
             }
           }
         } catch (err) {

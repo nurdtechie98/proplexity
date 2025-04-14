@@ -60,16 +60,6 @@ def serve():
     The server exposes endpoints compatible with OpenAI's API:
     - /v1/chat/completions for chat completions
     - /v1/completions for text completions
-
-    Environment:
-        - Uses H100 GPU for inference
-        - Persistent cache volumes for model weights
-        - Automatic scaling based on demand
-        - 15-minute scale-down window
-
-    Authentication:
-        - Uses API key authentication
-        - Key must be provided in requests
     """
     import subprocess
 

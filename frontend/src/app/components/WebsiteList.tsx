@@ -43,13 +43,13 @@ export default function WebsiteList() {
 
       // Poll for status
       const checkStatus = async () => {
-        const statusResponse = await spiderService.getStatus(response.data.job_id);
+        const statusResponse = await spiderService.getStatus(response.data?.job_id || '');
         
         if (!statusResponse || typeof statusResponse !== 'object') {
           throw new Error('Invalid status response');
         }
 
-        if (statusResponse.status === 'success' && statusResponse.data?.status === 'completed') {
+        if (statusResponse.status === 'success') {
           setScrapingStatus(prev => ({ ...prev, [website.id]: 'completed' }));
           // Refresh the website list to get updated data
           fetchWebsites();

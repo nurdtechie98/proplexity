@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { retrievalService, RetrievalResult } from '../../services/retrieval';
-import { json } from 'stream/consumers';
 
 export default function Chat() {
   const [query, setQuery] = useState('');
