@@ -83,6 +83,19 @@ npm run dev
 - Website tracking and monitoring
 - Content update statistics
 
+
+## ToDo
+
+### Deployments
+- [ ] Setup Backend Deployment
+- [ ] Modal Secrets are manual rn
+
+### Refactoring
+- [ ] Move db operations to db repository
+
+### Functionality
+- [ ] Semantic chunking
+
 ## Documentation
 - [Backend API Documentation](backend/README.md)
 - [Frontend Documentation](frontend/README.md)
