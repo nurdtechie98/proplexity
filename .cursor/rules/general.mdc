@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+name: General Rules
+description: Common rules for both frontend and backend
+
+rules:
+  - name: git_ignore
+    pattern: ".gitignore"
+    requirements:
+      - "Should ignore node_modules"
+      - "Should ignore __pycache__"
+      - "Should ignore environment files"
+      - "Should ignore build artifacts"
+
+  - name: code_formatting
+    pattern: "**/*"
+    requirements:
+      - "Maximum line length of 88 characters for Python (black formatter)"
+      - "Maximum line length of 100 characters for JavaScript/TypeScript"
+      - "No trailing whitespace"
+      - "UTF-8 encoding"
+
+  - name: documentation
+    pattern: "**/*"
+    requirements:
+      - "All files should have a header comment describing their purpose"
+      - "Complex logic should be documented with inline comments"
+      - "README.md should be maintained for both frontend and backend" 

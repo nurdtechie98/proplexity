@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "wayback"
+version = "0.1.0"
+description = "WayBack API Backend"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
+pydantic = "^2.0.0"
+sqlalchemy = "^2.0.0"
+python-dotenv = "^1.0.0"
+modal = "^0.73.155"
+playwright = "^1.51.0"
+html2text = "^2024.2.26"
+openai = "^1.73.0"
+pydantic-settings = "^2.8.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.poetry.scripts]
+format = "bash -c 'black . && isort .'"
+lint = "flake8 ."
+lint-format = "bash -c 'black . && isort . && flake8 .'"

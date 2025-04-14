@@ -1,0 +1,43 @@
+---
+description: 
+globs: frontend/*
+alwaysApply: false
+---
+name: Frontend Rules
+description: Rules for Next.js frontend code organization and style
+
+directory_structure:
+  frontend:
+    - app/
+    - components/
+    - lib/
+    - public/
+    - styles/
+    - types/
+    - utils/
+    - hooks/
+    - context/
+    - services/
+
+rules:
+  - name: component_structure
+    pattern: "app/components/*.{tsx,jsx}"
+    requirements:
+      - "Components should be functional components"
+      - "Props should be typed using TypeScript interfaces"
+      - "Each component should have a clear responsibility"
+      - "Components should be properly documented with JSDoc comments"
+
+  - name: page_structure
+    pattern: "app/**/*.{tsx,jsx}"
+    requirements:
+      - "Pages should use proper metadata"
+      - "Pages should handle loading and error states"
+      - "Pages should be properly documented"
+
+  - name: naming_conventions
+    pattern: "**/*.{ts,tsx,js,jsx}"
+    requirements:
+      - "Components should use PascalCase"
+      - "Functions and variables should use camelCase"
+      - "Constants should use UPPER_SNAKE_CASE" 
